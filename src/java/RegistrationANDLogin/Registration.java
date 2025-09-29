@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RegistrationANDLogin;
 
 import java.io.IOException;
@@ -34,13 +30,13 @@ public class Registration extends HttpServlet {
           Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/e-commerce?useSSL=false","root","root");
           Statement st=con.createStatement();
           PreparedStatement stmt = con.prepareStatement("INSERT INTO Registar (name, email, password_hash, address,Usertype) VALUES (?, ?, ?, ?,?)");
-            stmt.setString(1, name);           // Set name
-            stmt.setString(2, email);          // Set email
-            stmt.setString(3, password);       // Set hashed password (replace this with hashed password)
-            stmt.setString(4, address);        // Set address
-            stmt.setString(5, "normal");        // type
+            stmt.setString(1, name);          
+            stmt.setString(2, email);          
+            stmt.setString(3, password);       
+            stmt.setString(4, address);        
+            stmt.setString(5, "normal");        
             
-            // Execute the insert statement
+        
             stmt.executeUpdate();
           HttpSession httpSession=request.getSession();
           httpSession.setAttribute("message","User Registration Succeful"+name);
